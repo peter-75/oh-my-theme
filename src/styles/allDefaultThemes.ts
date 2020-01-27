@@ -16,6 +16,7 @@ import { Theme } from "theme-ui";
 import merge from "lodash.merge";
 import buttonStyles from "./buttonStyles";
 import linkStyles from "./linkStyles";
+import breakpointStyle from "./breakpointStyle";
 
 export interface ThemePreset {
   id: string;
@@ -36,7 +37,12 @@ const allPresets: ThemePreset[] = [
 ];
 
 const allDefaultThemes = allPresets.reduce<ThemePreset[]>((acc, preset) => {
-  const mergeTheme = merge(preset.theme, buttonStyles, linkStyles);
+  const mergeTheme = merge(
+    preset.theme,
+    buttonStyles,
+    linkStyles,
+    breakpointStyle
+  );
 
   acc.push({
     id: preset.id,

@@ -14,6 +14,7 @@ import allDefaultThemes from "../styles/allDefaultThemes";
 import ButtonsItem from "./ButtonsItem";
 import LinksItem from "./LinksItem";
 import { THEME_ID_CUSTOM_THEME } from "../utils/constants";
+import BreakpointItem from "./BreakpointItem";
 
 const ThemeEditorLazy = React.lazy(() => import("./ThemeEditor"));
 
@@ -60,13 +61,14 @@ const App: React.FC = () => {
             <GridItem title="Typography" gridArea="span 1 / span 3">
               <Typography></Typography>
             </GridItem>
-            <GridItem title="Buttons" gridArea="span 4 / span 2">
+            <GridItem title="Buttons" gridArea="span 1 / span 2">
               <ButtonsItem variants={Object.keys(theme.buttons as {})} />
             </GridItem>
-            <GridItem title="Links" gridArea="span 4 / span 1">
-              {/*
-  // @ts-ignore */}
+            <GridItem title="Links" gridArea="span 1 / span 1">
               <LinksItem variants={Object.keys(theme.links as {})} />
+            </GridItem>
+            <GridItem title="Breakpoints" gridArea="span 2 / span 2">
+              <BreakpointItem breakpoints={theme.breakpoints} />
             </GridItem>
           </Grid>
         ) : (
