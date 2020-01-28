@@ -12,29 +12,35 @@ const Typography: React.FC = () => {
   return (
     <div>
       {fonts && (
-        <Flex sx={{ flex: "1 1 30%", justifyContent: "space-between" }}>
-          <div sx={{ padding: "30px" }}>
+        <Flex
+          sx={{
+            flex: "1 1 30%",
+            justifyContent: "space-between",
+            flexWrap: "wrap",
+          }}
+        >
+          <div sx={{ p: [1, 4] }}>
             <Styled.h1 sx={{ fontWeight: "bold" }}>aA</Styled.h1>
-            <Styled.h3 sx={{ fontWeight: "bold" }}>
+            <Styled.h5 sx={{ fontWeight: "bold" }}>
               {fonts["body"].split(",")[0]}
-            </Styled.h3>
+            </Styled.h5>
           </div>
-          <div sx={{ padding: "30px" }}>
+          <div sx={{ p: [1, 4] }}>
             <Styled.h1 sx={{ fontWeight: "body" }}>aA</Styled.h1>
-            <Styled.h3 sx={{ fontWeight: "body" }}>
+            <Styled.h5 sx={{ fontWeight: "body" }}>
               {fonts["body"].split(",")[0]}
-            </Styled.h3>
+            </Styled.h5>
           </div>
-          <div sx={{ padding: "30px" }}>
+          <div sx={{ p: [1, 4] }}>
             <Styled.h1 sx={{ fontWeight: "light" }}>aA</Styled.h1>
-            <Styled.h3 sx={{ fontWeight: "light" }}>
+            <Styled.h5 sx={{ fontWeight: "light" }}>
               {fonts["body"].split(",")[0]}
-            </Styled.h3>
+            </Styled.h5>
           </div>
         </Flex>
       )}
-      <Flex>
-        <div sx={{ flex: "1 1 45%", p: 4 }}>
+      <Flex sx={{ flexWrap: "wrap" }}>
+        <div sx={{ flex: "1 1 45%", p: [1, 4] }}>
           <Styled.h6>Healines</Styled.h6>
           <Styled.h1>h1 headline</Styled.h1>
           <Styled.h2>h2 headline</Styled.h2>
@@ -43,7 +49,7 @@ const Typography: React.FC = () => {
           <Styled.h5>h5 headline</Styled.h5>
           <Styled.h6>h6 headline</Styled.h6>
         </div>
-        <div sx={{ flex: "1 1 45%", p: 4 }}>
+        <div sx={{ flex: "1 1 45%", p: [1, 4] }}>
           <Styled.h6>Body Text</Styled.h6>
           <Styled.p>
             I think we need to start from scratch. Jazz it up a little bit- use

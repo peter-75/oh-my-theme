@@ -43,6 +43,7 @@ const ThemeWidget: React.FC<Props> = ({
                 "0 0 4px rgba(0, 0, 0, 0.1), 0 2px 4px rgba(0, 0, 0, 0.2)",
               borderRadius: "50%",
               border: "6px solid #ffffff",
+              // outline: "none",
               background: `linear-gradient(to right, ${theme.colors?.primary} 50%, ${theme.colors?.secondary} 50%)`,
               "&:hover": {
                 boxShadow:

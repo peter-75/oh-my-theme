@@ -5,7 +5,7 @@ interface Props {
   variants: string[];
 }
 
-const ButtonsItem: React.FC<Props> = ({ variants }) => {
+const Buttons: React.FC<Props> = ({ variants }) => {
   return (
     <div>
       {variants.map(variant => (
@@ -17,4 +17,4 @@ const ButtonsItem: React.FC<Props> = ({ variants }) => {
   );
 };
 
-export default ButtonsItem;
+export default Buttons;

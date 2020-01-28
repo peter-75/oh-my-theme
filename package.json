@@ -1,9 +1,12 @@
 {
-  "name": "gatsby-starter-default",
+  "name": "oh-my-theme-website",
   "private": true,
-  "description": "A simple starter to get up and developing quickly with Gatsby",
+  "description": "A simple playground website to create/edit/visualize themes from theme-ui inspired by the codePen of Olivia Ng",
   "version": "0.1.0",
-  "author": "Kyle Mathews <mathews.kyle@gmail.com>",
+  "author": {
+    "name": "peter-75",
+    "url": "https://github.com/peter-75"
+  },
   "dependencies": {
     "@emotion/core": "^10.0.27",
     "@fortawesome/fontawesome-svg-core": "^1.2.26",
@@ -49,7 +52,11 @@
     "typescript": "^3.7.5"
   },
   "keywords": [
-    "gatsby"
+    "gatsby",
+    "theme",
+    "theme-ui",
+    "theme presets",
+    "style guidelines"
   ],
   "license": "MIT",
   "scripts": {
@@ -77,9 +84,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/gatsbyjs/gatsby-starter-default"
+    "url": "https://github.com/peter-75/oh-my-theme-gatsby"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/peter-75/oh-my-theme-gatsby/issues"
   }
 }

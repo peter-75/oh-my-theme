@@ -8,7 +8,7 @@ interface Props {
   colorVal: string | undefined;
 }
 
-const ColorItem: React.FC<Props> = ({ colorKey, colorVal = "primary" }) => {
+const ColorPalette: React.FC<Props> = ({ colorKey, colorVal = "primary" }) => {
   return (
     <div
       sx={{
@@ -53,4 +53,4 @@ const ColorItem: React.FC<Props> = ({ colorKey, colorVal = "primary" }) => {
   );
 };
 
-export default ColorItem;
+export default ColorPalette;
