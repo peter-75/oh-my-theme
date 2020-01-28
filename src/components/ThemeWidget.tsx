@@ -24,7 +24,14 @@ const ThemeWidget: React.FC<Props> = ({
       }}
     >
       {allThemes.map(({ theme, id }) => (
-        <div key={id} sx={{ margin: "0 10px" }}>
+        <Flex
+          key={id}
+          sx={{
+            margin: "0 10px",
+            flexDirection: "column",
+            alignItems: "center",
+          }}
+        >
           <motion.button
             whileHover={{ scale: 1.2 }}
             onClick={() => setTheme(id)}
@@ -46,7 +53,7 @@ const ThemeWidget: React.FC<Props> = ({
           <Styled.h5 sx={{ textAlign: "center", marginTop: "5px" }}>
             {id}
           </Styled.h5>
-        </div>
+        </Flex>
       ))}
     </Flex>
   );
