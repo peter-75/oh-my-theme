@@ -15,6 +15,8 @@ import Buttons from "./styleguide/Buttons";
 import Links from "./styleguide/Links";
 import { THEME_ID_CUSTOM_THEME } from "../utils/constants";
 import Breakpoints from "./styleguide/Breakpoints";
+import LoadingIndicators from "./styleguide/LoadingIndicators";
+import { Spinner } from "@theme-ui/components";
 
 const ThemeEditorLazy = React.lazy(() => import("./editor/ThemeEditor"));
 
@@ -67,14 +69,22 @@ const App: React.FC = () => {
             <GridItem title="Links" gridArea="links">
               <Links variants={Object.keys(theme.links as {})} />
             </GridItem>
-            <GridItem title="Breakpoints" gridArea="breakpoints">
+            <GridItem centerContent title="Breakpoints" gridArea="breakpoints">
               <Breakpoints breakpoints={theme.breakpoints} />
+            </GridItem>
+            <GridItem
+              centerContent
+              title="Loading Indicators"
+              gridArea="loaders"
+            >
+              <LoadingIndicators />
             </GridItem>
           </Grid>
         ) : (
           <>
             {!isSSR && (
-              <React.Suspense fallback={<div>...loading</div>}>
+              // <Spinner />
+              <React.Suspense fallback={<Spinner />}>
                 <ThemeEditorLazy
                   setAllThemes={setAllThemes}
                   idSelectedTheme={id}

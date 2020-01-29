@@ -31,6 +31,7 @@ module.exports = {
     "@typescript-eslint/camelcase": "off",
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-empty-interface": "off",
+    "@typescript-eslint/no-empty-function": "off",
   },
   overrides: [
     // Override some TypeScript rules just for .js files
