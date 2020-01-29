@@ -6,9 +6,15 @@ import { Theme } from "theme-ui";
 interface Props {
   title: string;
   gridArea?: string;
+  centerContent?: boolean;
 }
 
-const GridItem: React.FC<Props> = ({ title, children, gridArea = "auto" }) => {
+const GridItem: React.FC<Props> = ({
+  title,
+  children,
+  gridArea = "auto",
+  centerContent,
+}) => {
   return (
     <div
       sx={{
@@ -17,6 +23,11 @@ const GridItem: React.FC<Props> = ({ title, children, gridArea = "auto" }) => {
         p: "30px",
         position: "relative",
         gridArea: gridArea,
+        ...(centerContent && {
+          display: "flex",
+          alignItems: "center",
+          justifyContent: "center",
+        }),
       }}
     >
       <div>{children}</div>

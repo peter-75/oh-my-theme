@@ -20,11 +20,12 @@ const Grid: React.FC = ({ children }) => (
         "buttons"
         "links"
         "breakpoints"
+        "loaders"
       `,
         `
         "colors typography typography typography"
         "colors buttons buttons links"
-        "breakpoints breakpoints breakpoints breakpoints"
+        "breakpoints breakpoints loaders loaders"
       `,
       ],
       borderTop: (theme: Theme) => `1px solid ${theme.colors?.primary}`,
