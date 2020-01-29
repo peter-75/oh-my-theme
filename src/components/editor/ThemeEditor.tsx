@@ -5,8 +5,8 @@ import "ace-builds/src-noconflict/mode-json";
 import "ace-builds/src-noconflict/theme-monokai";
 import { Theme } from "theme-ui";
 import { Button, Flex } from "@theme-ui/components";
-import { ThemePreset } from "../styles/allDefaultThemes";
-import { THEME_ID_CUSTOM_THEME } from "../utils/constants";
+import { ThemePreset } from "../../styles/allDefaultThemes";
+import { THEME_ID_CUSTOM_THEME } from "../../utils/constants";
 
 interface Props {
   theme: Theme;

@@ -1,7 +1,7 @@
 import React from "react";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import ColorItem from "./ColorItem";
+import ColorPalette from "./ColorPalette";
 import { useThemeUI } from "theme-ui";
 import ColorCell from "./ColorCell";
 import { Flex } from "@theme-ui/components";
@@ -10,7 +10,7 @@ interface Props {
   idSelectedTheme: string;
 }
 
-const ColorPalette: React.FC<Props> = ({ idSelectedTheme }) => {
+const Colors: React.FC<Props> = ({ idSelectedTheme }) => {
   const context = useThemeUI();
   const {
     theme: { colors },
@@ -21,19 +21,23 @@ const ColorPalette: React.FC<Props> = ({ idSelectedTheme }) => {
 
   return (
     <div>
-      <ColorItem key={"primary"} colorKey={"primary"} colorVal={primary} />
-      <ColorItem
+      <ColorPalette key={"primary"} colorKey={"primary"} colorVal={primary} />
+      <ColorPalette
         key={"secondary"}
         colorKey={"secondary"}
         colorVal={secondary}
       />
       <Flex sx={{ flexWrap: "wrap" }}>
         {Object.entries(restColors as {}).map(([colorKey, colorVal], index) => {
-          if (Array.isArray(colorVal) || typeof colorVal === "object") {
+          if (
+            Array.isArray(colorVal) ||
+            typeof colorVal === "object" ||
+            colorKey === "background"
+          ) {
             return null;
           }
           return (
-            <div key={colorKey} sx={{ p: 2 }}>
+            <div key={colorKey} sx={{ padding: "0 5px" }}>
               <ColorCell colorKey={colorKey} colorVal={colorVal as string} />
             </div>
           );
@@ -43,4 +47,4 @@ const ColorPalette: React.FC<Props> = ({ idSelectedTheme }) => {
   );
 };
 
-export default ColorPalette;
+export default Colors;

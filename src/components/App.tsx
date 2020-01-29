@@ -2,8 +2,8 @@ import React, { useState } from "react";
 import { ThemeProvider, Styled, Flex } from "theme-ui";
 import Grid from "./Grid";
 import GridItem from "./GridItem";
-import ColorPalette from "./ColorPalette";
-import Typography from "./Typography";
+import Colors from "./styleguide/Colors";
+import Typography from "./styleguide/Typography";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
 import ToggleColorMode from "./ToggleColorMode";
@@ -11,12 +11,12 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 import ThemeWidget from "./ThemeWidget";
 import allDefaultThemes from "../styles/allDefaultThemes";
-import ButtonsItem from "./ButtonsItem";
-import LinksItem from "./LinksItem";
+import Buttons from "./styleguide/Buttons";
+import Links from "./styleguide/Links";
 import { THEME_ID_CUSTOM_THEME } from "../utils/constants";
-import BreakpointItem from "./BreakpointItem";
+import Breakpoints from "./styleguide/Breakpoints";
 
-const ThemeEditorLazy = React.lazy(() => import("./ThemeEditor"));
+const ThemeEditorLazy = React.lazy(() => import("./editor/ThemeEditor"));
 
 const App: React.FC = () => {
   const [allThemes, setAllThemes] = useState(allDefaultThemes);
@@ -55,20 +55,20 @@ const App: React.FC = () => {
         {/* <ToggleColorMode></ToggleColorMode> */}
         {toggleDesignTokenMode ? (
           <Grid>
-            <GridItem title="Colors" gridArea="span 6 / span 1 ">
-              <ColorPalette idSelectedTheme={id} />
+            <GridItem title="Colors" gridArea="colors">
+              <Colors idSelectedTheme={id} />
             </GridItem>
-            <GridItem title="Typography" gridArea="span 1 / span 3">
+            <GridItem title="Typography" gridArea="typography">
               <Typography></Typography>
             </GridItem>
-            <GridItem title="Buttons" gridArea="span 1 / span 2">
-              <ButtonsItem variants={Object.keys(theme.buttons as {})} />
+            <GridItem title="Buttons" gridArea="buttons">
+              <Buttons variants={Object.keys(theme.buttons as {})} />
             </GridItem>
-            <GridItem title="Links" gridArea="span 1 / span 1">
-              <LinksItem variants={Object.keys(theme.links as {})} />
+            <GridItem title="Links" gridArea="links">
+              <Links variants={Object.keys(theme.links as {})} />
             </GridItem>
-            <GridItem title="Breakpoints" gridArea="span 2 / span 2">
-              <BreakpointItem breakpoints={theme.breakpoints} />
+            <GridItem title="Breakpoints" gridArea="breakpoints">
+              <Breakpoints breakpoints={theme.breakpoints} />
             </GridItem>
           </Grid>
         ) : (

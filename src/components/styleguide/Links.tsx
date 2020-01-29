@@ -5,7 +5,7 @@ interface Props {
   variants: string[];
 }
 
-const LinksItem: React.FC<Props> = ({ variants }) => {
+const Links: React.FC<Props> = ({ variants }) => {
   return (
     <div>
       {variants.map(variant => (
@@ -18,4 +18,4 @@ const LinksItem: React.FC<Props> = ({ variants }) => {
   );
 };
 
-export default LinksItem;
+export default Links;

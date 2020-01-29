@@ -15,14 +15,13 @@ interface Props {
 }
 
 const devicesIcon: IconProp[] = [faMobileAlt, faTabletAlt, faLaptop, faDesktop];
-const BreakpointItem: React.FC<Props> = ({ breakpoints }) => {
+const Breakpoints: React.FC<Props> = ({ breakpoints }) => {
   return (
     <div>
       <Flex
         sx={{
           alignItems: "center",
           justifyContent: "center",
-          marginTop: "10px",
         }}
       >
         {breakpoints.map((breakpoint, index) => {
@@ -36,11 +35,11 @@ const BreakpointItem: React.FC<Props> = ({ breakpoints }) => {
               }}
             >
               <FontAwesomeIcon
-                size="2x"
+                size="3x"
                 color="primary"
                 icon={devicesIcon[index]}
               />
-              <Styled.h6>{breakpoint}</Styled.h6>
+              <Styled.h6 sx={{ marginBottom: 0 }}>{breakpoint}</Styled.h6>
             </Flex>
           );
         })}
@@ -49,4 +48,4 @@ const BreakpointItem: React.FC<Props> = ({ breakpoints }) => {
   );
 };
 
-export default BreakpointItem;
+export default Breakpoints;

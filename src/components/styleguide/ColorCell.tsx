@@ -9,7 +9,7 @@ interface Props {
 const ColorCell: React.FC<Props> = ({ colorKey, colorVal }) => {
   return (
     <Flex sx={{ flexDirection: "column", alignItems: "center" }}>
-      <div sx={{ backgroundColor: colorVal, height: "25px", width: "25px" }} />
+      <div sx={{ backgroundColor: colorVal, height: "50px", width: "50px" }} />
       <p>{colorKey}</p>
     </Flex>
   );
