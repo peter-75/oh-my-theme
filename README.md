@@ -1,4 +1,4 @@
-![alt text](https://github.com/peter-75/oh-my-theme-gatsby/raw/master/src/images/oh-my-theme-icon48.png "oh my theme")
+![alt text](https://github.com/peter-75/oh-my-theme/raw/master/src/images/oh-my-theme-icon48.png "oh my theme")
 
 # Oh my theme
 
