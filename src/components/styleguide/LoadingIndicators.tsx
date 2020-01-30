@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from "react";
-import { Progress, Spinner } from "@theme-ui/components";
+import { Progress, Spinner, Flex } from "@theme-ui/components";
 import { Styled } from "theme-ui";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
@@ -34,19 +34,27 @@ const LoadingIndicators: React.FC<Props> = () => {
   }, 50);
 
   return (
-    <div sx={{ textAlign: "center" }}>
-      <Progress
-        sx={{ height: "10px", width: "80%", m: "0 auto", borderRadius: "50px" }}
-        max={100}
-        value={count}
-      >
-        50%
-      </Progress>
-      <Styled.h5>LOADING...</Styled.h5>
-
-      <Spinner />
-      <Styled.h5>PLEASE WAIT...</Styled.h5>
-    </div>
+    <Flex
+      sx={{ textAlign: "center", flexWrap: "wrap", alignItems: "flex-end" }}
+    >
+      <div sx={{ p: "10px" }}>
+        <Progress
+          sx={{
+            height: "10px",
+            width: "100%",
+            m: "0 auto",
+            borderRadius: "50px",
+          }}
+          max={100}
+          value={count}
+        />
+        <Styled.h5>LOADING...</Styled.h5>
+      </div>
+      <div sx={{ p: "10px" }}>
+        <Spinner />
+        <Styled.h5>PLEASE WAIT...</Styled.h5>
+      </div>
+    </Flex>
   );
 };
 

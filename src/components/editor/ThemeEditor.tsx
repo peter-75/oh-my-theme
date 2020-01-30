@@ -1,29 +1,24 @@
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useContext } from "react";
 import AceEditor from "react-ace";
 
 import "ace-builds/src-noconflict/mode-json";
 import "ace-builds/src-noconflict/theme-monokai";
 import { Theme } from "theme-ui";
 import { Button, Flex } from "@theme-ui/components";
-import { ThemePreset } from "../../styles/allDefaultThemes";
 import { THEME_ID_CUSTOM_THEME } from "../../utils/constants";
+import { AllThemesContext } from "../context/AllThemesProvider";
 
 interface Props {
   theme: Theme;
-  idSelectedTheme: string;
-  setAllThemes: React.Dispatch<React.SetStateAction<ThemePreset[]>>;
-  setSelectedTheme: React.Dispatch<React.SetStateAction<string>>;
-  isCustomThemeDefined: boolean;
 }
 
-const ThemeEditor: React.FC<Props> = ({
-  setAllThemes,
-  theme,
-  idSelectedTheme,
-  setSelectedTheme,
-  isCustomThemeDefined,
-}) => {
+const ThemeEditor: React.FC<Props> = ({ theme }) => {
   const ref = useRef(null);
+  const {
+    themes: { setAllThemes },
+    selectedTheme: { idSelectedTheme, setIdSelectedTheme },
+    customTheme,
+  } = useContext(AllThemesContext);
 
   useEffect(() => {
     // @ts-ignore
@@ -49,7 +44,7 @@ const ThemeEditor: React.FC<Props> = ({
         }
         return [{ theme: newTheme, id: THEME_ID_CUSTOM_THEME }, ...prevState];
       });
-      setSelectedTheme(THEME_ID_CUSTOM_THEME);
+      setIdSelectedTheme(THEME_ID_CUSTOM_THEME);
     }
   };
 
@@ -57,7 +52,7 @@ const ThemeEditor: React.FC<Props> = ({
     <div>
       <Flex sx={{ justifyContent: "center", margin: "20px 0" }}>
         <Button onClick={handleUpdateTheme}>
-          {isCustomThemeDefined
+          {customTheme
             ? "Update your Custom Theme"
             : "Create your Custom Theme"}
         </Button>

@@ -1,61 +1,44 @@
-import React, { useState } from "react";
-import { ThemeProvider, Styled, Flex } from "theme-ui";
+import React, { useContext } from "react";
+import { ThemeProvider, Styled } from "theme-ui";
 import Grid from "./Grid";
 import GridItem from "./GridItem";
 import Colors from "./styleguide/Colors";
 import Typography from "./styleguide/Typography";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
-import ToggleColorMode from "./ToggleColorMode";
-import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-import { faCog } from "@fortawesome/free-solid-svg-icons";
 import ThemeWidget from "./ThemeWidget";
-import allDefaultThemes from "../styles/allDefaultThemes";
 import Buttons from "./styleguide/Buttons";
 import Links from "./styleguide/Links";
-import { THEME_ID_CUSTOM_THEME } from "../utils/constants";
 import Breakpoints from "./styleguide/Breakpoints";
 import LoadingIndicators from "./styleguide/LoadingIndicators";
 import { Spinner } from "@theme-ui/components";
+import { SettingsContext } from "./context/SettingsProvider";
+import { AllThemesContext } from "./context/AllThemesProvider";
 
 const ThemeEditorLazy = React.lazy(() => import("./editor/ThemeEditor"));
 
 const App: React.FC = () => {
-  const [allThemes, setAllThemes] = useState(allDefaultThemes);
-  const isCustomThemeDefined = allThemes.some(
-    theme => theme.id === THEME_ID_CUSTOM_THEME
-  );
-  const [idSelectedTheme, setIdSelectedTheme] = useState("base");
+  const {
+    themes: { allThemes },
+    selectedTheme: { idSelectedTheme },
+  } = useContext(AllThemesContext);
+
   // @ts-ignore
   const { theme, id } = allThemes.find(t => {
     return t.id === idSelectedTheme;
   });
 
-  const [toggleDesignTokenMode, setToggleDesignTokenMode] = useState(true);
+  const {
+    editorMode: { toggle },
+  } = React.useContext(SettingsContext);
+
   const isSSR = typeof window === "undefined";
 
   return (
     <ThemeProvider theme={theme}>
       <Styled.root>
-        <Flex sx={{ padding: "20px" }}>
-          <FontAwesomeIcon
-            onClick={() => setToggleDesignTokenMode(!toggleDesignTokenMode)}
-            size="2x"
-            color="primary"
-            sx={{ cursor: "pointer" }}
-            icon={faCog}
-          />
-          <Styled.h1 sx={{ margin: "0 auto", justifyItems: "center" }}>
-            Oh my Theme
-          </Styled.h1>
-        </Flex>
-        <ThemeWidget
-          allThemes={allThemes}
-          idSelectedTheme={id}
-          setTheme={setIdSelectedTheme}
-        />
-        {/* <ToggleColorMode></ToggleColorMode> */}
-        {toggleDesignTokenMode ? (
+        <ThemeWidget />
+        {!toggle ? (
           <Grid>
             <GridItem title="Colors" gridArea="colors">
               <Colors idSelectedTheme={id} />
@@ -85,13 +68,7 @@ const App: React.FC = () => {
             {!isSSR && (
               // <Spinner />
               <React.Suspense fallback={<Spinner />}>
-                <ThemeEditorLazy
-                  setAllThemes={setAllThemes}
-                  idSelectedTheme={id}
-                  setSelectedTheme={setIdSelectedTheme}
-                  isCustomThemeDefined={isCustomThemeDefined}
-                  theme={theme}
-                />
+                <ThemeEditorLazy theme={theme} />
               </React.Suspense>
             )}
           </>
