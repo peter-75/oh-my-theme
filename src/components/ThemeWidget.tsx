@@ -1,20 +1,15 @@
-import React from "react";
+import React, { useContext } from "react";
 /** @jsx jsx */
 import { jsx, Styled } from "theme-ui";
 import { Flex } from "@theme-ui/components";
 import { motion } from "framer-motion";
-import { ThemePreset } from "../styles/allDefaultThemes";
+import { AllThemesContext } from "./context/AllThemesProvider";
 
-interface Props {
-  allThemes: ThemePreset[];
-  idSelectedTheme: string;
-  setTheme: React.Dispatch<React.SetStateAction<string>>;
-}
-const ThemeWidget: React.FC<Props> = ({
-  allThemes,
-  idSelectedTheme,
-  setTheme,
-}) => {
+const ThemeWidget: React.FC = () => {
+  const {
+    themes: { allThemes },
+    selectedTheme: { idSelectedTheme, setIdSelectedTheme },
+  } = useContext(AllThemesContext);
   return (
     <Flex
       sx={{
@@ -34,7 +29,7 @@ const ThemeWidget: React.FC<Props> = ({
         >
           <motion.button
             whileHover={{ scale: 1.2 }}
-            onClick={() => setTheme(id)}
+            onClick={() => setIdSelectedTheme(id)}
             sx={{
               width: idSelectedTheme === id ? "60px" : "50px",
               height: idSelectedTheme === id ? "60px" : "50px",
