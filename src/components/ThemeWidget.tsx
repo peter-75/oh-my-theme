@@ -30,6 +30,7 @@ const ThemeWidget: React.FC = () => {
           <motion.button
             whileHover={{ scale: 1.2 }}
             onClick={() => setIdSelectedTheme(id)}
+            aria-label={`theme ${id}`}
             sx={{
               width: idSelectedTheme === id ? "60px" : "50px",
               height: idSelectedTheme === id ? "60px" : "50px",

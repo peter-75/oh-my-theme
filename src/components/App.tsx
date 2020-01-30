@@ -36,7 +36,9 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Styled.root>
+      <Styled.root
+        sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}
+      >
         <ThemeWidget />
         {!toggle ? (
           <Grid>
@@ -66,8 +68,21 @@ const App: React.FC = () => {
         ) : (
           <>
             {!isSSR && (
-              // <Spinner />
-              <React.Suspense fallback={<Spinner />}>
+              <React.Suspense
+                fallback={
+                  <div
+                    sx={{
+                      display: "flex",
+                      flexDirection: "column",
+                      flexGrow: 1,
+                      alignItems: "center",
+                      justifyContent: "center",
+                    }}
+                  >
+                    <Spinner width="96" height="96" />
+                  </div>
+                }
+              >
                 <ThemeEditorLazy theme={theme} />
               </React.Suspense>
             )}

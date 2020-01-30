@@ -10,25 +10,20 @@ https://oh-my-theme.com
 
 [![Netlify Status](https://api.netlify.com/api/v1/badges/ec615ca4-f84c-4aba-bdb6-17f359b5eeec/deploy-status)](https://app.netlify.com/sites/oh-my-theme/deploys)
 
-[![GitHub][github-badge]][github]
-
-[github]: https://github.com/peter-75/oh-my-theme-gatsby
-[github-badge]: https://flat.badgen.net/badge/-/github?icon=github&label
-
 ## What's next ?
 
-    - change/create theme by filling a form base on the json object
-    - authentification that will allow :
-        - to vote for your theme of choice
-        - to create different themes
-        - share and/or publish your themes
-    - allow more customization of the theme layout
+- change/create theme by filling a form base on the json object
+- authentification that will allow :
+  - to vote for your theme of choice
+  - to create different themes
+  - share and/or publish your themes
+  - allow more customization of the theme layout
 
 **NB:** feel free to share new ideas/advices/improvement in the issue section
 
 ## Getting Started
 
 ```sh
-    yarn
-    gatsby develop
+yarn
+gatsby develop
 ```
