@@ -28,7 +28,9 @@ const Layout = ({ children }) => {
       <main
         sx={{
           width: "100%",
-          flex: "1 1 auto",
+          display: "flex",
+          flexGrow: "1",
+          flexDirection: "columm",
         }}
       >
         {children}
