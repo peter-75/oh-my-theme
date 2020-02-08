@@ -2,7 +2,7 @@
 
 # Oh my theme
 
-A simple playground website to create/edit/visualize themes inspired by the codePen of Olivia Ng | built with theme-ui and gatsby
+A simple sandbox website to create/edit/visualize themes inspired by the codePen of Olivia Ng | built with theme-ui and gatsby
 
 https://oh-my-theme.com
 

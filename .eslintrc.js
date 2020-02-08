@@ -32,6 +32,8 @@ module.exports = {
     "@typescript-eslint/ban-ts-ignore": "off",
     "@typescript-eslint/no-empty-interface": "off",
     "@typescript-eslint/no-empty-function": "off",
+    "react/jsx-uses-react": "error",
+    "react/button-has-type": "error",
   },
   overrides: [
     // Override some TypeScript rules just for .js files

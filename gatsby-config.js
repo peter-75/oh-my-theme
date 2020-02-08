@@ -1,8 +1,8 @@
 module.exports = {
   siteMetadata: {
     title: `Oh my theme`,
-    description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
-    author: `peter-75`,
+    description: `A simple sandbox website to create/edit themes based on theme-ui and visualize them in a styleguide showing the design system`,
+    author: `Pierre Baele`,
   },
   plugins: [
     "gatsby-plugin-typescript",
@@ -11,7 +11,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `Oh my Theme - a theme playground`,
+        name: `Oh my Theme - a theme sandbox`,
         short_name: `Oh my Theme`,
         start_url: `/`,
         background_color: `#f7f0eb`,

@@ -1,7 +1,7 @@
 {
   "name": "oh-my-theme-website",
   "private": true,
-  "description": "A simple playground website to create/edit/visualize themes from theme-ui inspired by the codePen of Olivia Ng",
+  "description": "A simple sandbox website to create/edit/visualize themes from theme-ui inspired by the codePen of Olivia Ng",
   "version": "0.1.0",
   "author": {
     "name": "peter-75",
@@ -22,7 +22,7 @@
     "gatsby-plugin-manifest": "^2.2.31",
     "gatsby-plugin-netlify": "^2.1.31",
     "gatsby-plugin-offline": "^3.0.27",
-    "gatsby-plugin-react-helmet": "^3.1.16",
+    "gatsby-plugin-react-helmet": "^3.1.22",
     "gatsby-plugin-sharp": "^2.3.5",
     "gatsby-plugin-theme-ui": "^0.3.0",
     "gatsby-plugin-typescript": "^2.1.26",

@@ -10,6 +10,7 @@ import {
   bootstrap,
   tailwind,
   future,
+  polaris,
 } from "@theme-ui/presets";
 // import { lighten } from "polished";
 import { Theme } from "theme-ui";
@@ -34,6 +35,7 @@ const allPresets: ThemePreset[] = [
   { id: "tosh", theme: tosh },
   { id: "bootstrap", theme: bootstrap },
   { id: "tailwind", theme: tailwind },
+  { id: "polaris", theme: polaris },
 ];
 
 const allDefaultThemes = allPresets.reduce<ThemePreset[]>((acc, preset) => {
