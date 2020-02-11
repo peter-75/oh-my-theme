@@ -7,6 +7,7 @@ import { SettingsContext } from "../context/SettingsProvider";
 import { faCog } from "@fortawesome/free-solid-svg-icons";
 /** @jsx jsx */
 import { jsx } from "theme-ui";
+import ToggleColorMode from "../ToggleColorMode";
 
 const Header = ({ siteTitle = "" }) => {
   const {

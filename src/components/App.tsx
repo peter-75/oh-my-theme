@@ -14,6 +14,8 @@ import LoadingIndicators from "./styleguide/LoadingIndicators";
 import { Spinner } from "@theme-ui/components";
 import { SettingsContext } from "./context/SettingsProvider";
 import { AllThemesContext } from "./context/AllThemesProvider";
+import { ColorModeProvider } from "@theme-ui/color-modes";
+import ToggleColorMode from "./ToggleColorMode";
 
 const ThemeEditorLazy = React.lazy(() => import("./editor/ThemeEditor"));
 
@@ -36,59 +38,67 @@ const App: React.FC = () => {
 
   return (
     <ThemeProvider theme={theme}>
-      <Styled.root
-        sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}
-      >
-        <ThemeWidget />
-        {!toggle ? (
-          <Grid>
-            <GridItem title="Colors" gridArea="colors">
-              <Colors idSelectedTheme={id} />
-            </GridItem>
-            <GridItem title="Typography" gridArea="typography">
-              <Typography></Typography>
-            </GridItem>
-            <GridItem title="Buttons" gridArea="buttons">
-              <Buttons variants={Object.keys(theme.buttons as {})} />
-            </GridItem>
-            <GridItem title="Links" gridArea="links">
-              <Links variants={Object.keys(theme.links as {})} />
-            </GridItem>
-            <GridItem centerContent title="Breakpoints" gridArea="breakpoints">
-              <Breakpoints breakpoints={theme.breakpoints} />
-            </GridItem>
-            <GridItem
-              centerContent
-              title="Loading Indicators"
-              gridArea="loaders"
-            >
-              <LoadingIndicators />
-            </GridItem>
-          </Grid>
-        ) : (
-          <>
-            {!isSSR && (
-              <React.Suspense
-                fallback={
-                  <div
-                    sx={{
-                      display: "flex",
-                      flexDirection: "column",
-                      flexGrow: 1,
-                      alignItems: "center",
-                      justifyContent: "center",
-                    }}
-                  >
-                    <Spinner width="96" height="96" />
-                  </div>
-                }
+      <ColorModeProvider>
+        <Styled.root
+          sx={{ display: "flex", flexDirection: "column", flexGrow: 1 }}
+        >
+          <ToggleColorMode />
+
+          <ThemeWidget />
+          {!toggle ? (
+            <Grid>
+              <GridItem title="Colors" gridArea="colors">
+                <Colors idSelectedTheme={id} />
+              </GridItem>
+              <GridItem title="Typography" gridArea="typography">
+                <Typography></Typography>
+              </GridItem>
+              <GridItem title="Buttons" gridArea="buttons">
+                <Buttons variants={Object.keys(theme.buttons as {})} />
+              </GridItem>
+              <GridItem title="Links" gridArea="links">
+                <Links variants={Object.keys(theme.links as {})} />
+              </GridItem>
+              <GridItem
+                centerContent
+                title="Breakpoints"
+                gridArea="breakpoints"
               >
-                <ThemeEditorLazy theme={theme} />
-              </React.Suspense>
-            )}
-          </>
-        )}
-      </Styled.root>
+                <Breakpoints breakpoints={theme.breakpoints} />
+              </GridItem>
+              <GridItem
+                centerContent
+                title="Loading Indicators"
+                gridArea="loaders"
+              >
+                <LoadingIndicators />
+              </GridItem>
+            </Grid>
+          ) : (
+            <>
+              {!isSSR && (
+                <React.Suspense
+                  fallback={
+                    <div
+                      sx={{
+                        display: "flex",
+                        flexDirection: "column",
+                        flexGrow: 1,
+                        alignItems: "center",
+                        justifyContent: "center",
+                      }}
+                    >
+                      <Spinner width="96" height="96" />
+                    </div>
+                  }
+                >
+                  <ThemeEditorLazy theme={theme} />
+                </React.Suspense>
+              )}
+            </>
+          )}
+        </Styled.root>
+      </ColorModeProvider>
     </ThemeProvider>
   );
 };
